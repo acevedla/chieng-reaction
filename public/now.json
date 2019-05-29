@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "alias": "ace-chieng-reaction",
     "name": "chieng-reaction",
     "routes": [
         {
