@@ -1,0 +1,14 @@
+{
+    "version": 2,
+    "name": "chieng-reaction",
+    "routes": [
+        {
+          "src": "^/static/(.*)",
+          "dest": "/static/$1"
+        },
+        {
+          "src": ".*",
+          "dest": "/index.html"
+        }
+    ]
+  }
