@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Login.css'
+import { NavLink } from 'react-router-dom'
 
 class Login extends Component {
     render() {
@@ -14,7 +15,7 @@ class Login extends Component {
                     Password
                 </label>
                 <input type="password" placeholder="Please enter a password"></input>
-                <button type="submit">Submit</button>
+                <NavLink to='/userhomepage'><button type="submit">Submit</button></NavLink>
                 </form>
             </div>
         )

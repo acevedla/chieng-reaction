@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom';
-import './Generalhomepage.css'
+import './Userhomepage.css'
+import { NavLink } from 'react-router-dom'
 
-
-class Generalhomepage extends Component {
-    render () {
-        return (
+class Userhomepage extends Component {
+    render() {
+        return(
             <div>
                 <header>
                     <nav>
-                    <NavLink to='/register'>Sign up</NavLink>
-                    <NavLink to='/login'>Log In</NavLink>
+                    <NavLink to='/homepage'>Log Out</NavLink>
                     </nav>
                 </header>
                 <ul>
@@ -18,67 +16,79 @@ class Generalhomepage extends Component {
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
+                    <NavLink to='/review'><button>Submit new review</button></NavLink>
                 </li>
             </ul>
-            <footer>Social Media NavLinks</footer>
+            <footer>Social Media Links</footer>
             </div>
         )
     }
 }
 
-export default Generalhomepage;
+export default Userhomepage;

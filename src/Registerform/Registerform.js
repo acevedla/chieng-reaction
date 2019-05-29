@@ -5,7 +5,7 @@ class Registerform extends Component {
     render () {
         return(
             <div>
-                <form>
+                <form className='register-form'>
                 <label>
                 Email
                 </label>
