@@ -6,7 +6,7 @@ class Login extends Component {
     render() {
         return(
             <div>
-                <form>
+                <form className='login-form'>
                 <label>
                     Username
                 </label>
