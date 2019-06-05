@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Registerform.css'
+import { NavLink } from 'react-router-dom'
 
 class Registerform extends Component {
     render () {
@@ -22,7 +23,7 @@ class Registerform extends Component {
                     Confirm Password
                 </label>
                 <input type="password" placeholder="Please confirm your password"></input>
-                <button type="submit">Submit</button>
+                <NavLink to='/userhomepage'><button type="submit">Submit</button></NavLink>
                 </form>
             </div>
         )
