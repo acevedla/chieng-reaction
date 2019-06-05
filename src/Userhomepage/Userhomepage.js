@@ -24,7 +24,7 @@ class Userhomepage extends Component {
             <div>
                 <header>
                     <nav>
-                    <NavLink to='/homepage'>Log Out</NavLink>
+                    <NavLink to='/generalhomepage'>Log Out</NavLink>
                     </nav>
                 </header>
                 <ul>

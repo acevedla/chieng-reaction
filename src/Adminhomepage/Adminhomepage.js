@@ -24,7 +24,7 @@ class Adminhomepage extends Component {
             <div>
                 <header>
                     <nav>
-                    <NavLink to='/homepage'>Log Out</NavLink>
+                    <NavLink to='/generalhomepage'>Log Out</NavLink>
                     <NavLink to='/newproduct'>Add new product</NavLink>
                     </nav>
                 </header>

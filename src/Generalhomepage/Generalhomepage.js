@@ -9,7 +9,7 @@ class Generalhomepage extends Component {
             <div>
                 <header>
                     <nav>
-                    <NavLink to='/register'>Sign up</NavLink>
+                    <NavLink to='/registerform'>Sign up</NavLink>
                     <NavLink to='/login'>Log In</NavLink>
                     </nav>
                 </header>
