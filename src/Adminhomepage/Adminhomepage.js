@@ -1,25 +1,32 @@
 import React, { Component } from 'react'
 import './Adminhomepage.css'
 import { NavLink } from 'react-router-dom'
-import Popup from 'reactjs-popup'
-import StarRatingComponent from 'react-star-rating-component';
 
 class Adminhomepage extends Component {
-    constructor() {
-        super();
-     
-        this.state = {
-          rating: 1
-        };
-      }
-     
-      onStarClick(nextValue, prevValue, name) {
-        this.setState({rating: nextValue});
-      }
+    state = {
+        products: [],
+    };
+
+    componentDidMount () {
+        fetch(`http://localhost:8000/api/products/userhomepage`)
+        .then(response => {
+          if(!response.ok) {
+            throw new Error ('Something went wrong')
+          }
+          return response;
+        })
+        .then(response => response.json())
+        .then(data => {
+           this.setState({ 
+            products: data,
+           });
+          })
+        .catch(err => {
+          console.log('Error', err);
+        });
+    }
 
     render() {
-        const { rating } = this.state;
-
         return(
             <div>
                 <header>
@@ -29,60 +36,15 @@ class Adminhomepage extends Component {
                     </nav>
                 </header>
                 <ul>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
+                    {this.state.products.map((products) =>
+                    <li key={products.id}>
+                    <img src={products.images} alt='Not found'></img>
+                    {products.title}
+                    {products.description}
+                    {products.ratings}
+                    {products.reviews}
                     <NavLink to='/editproduct'><button type='button'>edit</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/editproduct'><button type='button'>edit</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/editproduct'><button type='button'>edit</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/editproduct'><button type='button'>edit</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/editproduct'><button type='button'>edit</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/editproduct'><button type='button'>edit</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/editproduct'><button type='button'>edit</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/editproduct'><button type='button'>edit</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/editproduct'><button type='button'>edit</button></NavLink>
-                </li>
+                </li>)}
             </ul>
             <footer>Social Media Links</footer>
             </div>
