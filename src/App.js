@@ -7,8 +7,6 @@ import Userhomepage from './Userhomepage/Userhomepage'
 
 class App extends Component {
   render () {
-
-  
   return (
     <main className='App'>
       <Route path='/register' component= {Registerform} />
