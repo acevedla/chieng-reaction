@@ -24,7 +24,7 @@ class Userhomepage extends Component {
             <div>
                 <header>
                     <nav>
-                    <NavLink to='/homepage'>Log Out</NavLink>
+                    <NavLink to='/generalhomepage'>Log Out</NavLink>
                     </nav>
                 </header>
                 <ul>
@@ -55,67 +55,185 @@ class Userhomepage extends Component {
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
+                    <Popup trigger={<button>Submit new review</button>} modal>
+                    <div className='review-popup'>
+                    <StarRatingComponent>
+                        name="rate1" 
+                        starCount={10}
+                        value={rating}
+                        onStarClick={this.onStarClick.bind(this)}
+                    </StarRatingComponent>
+                    <form className='review-form'>
+                    <label>
+                        Leave review below!
+                    </label>
+                        <textarea></textarea>
+                        <button type="submit">Submit</button>
+                        <button type="button">Cancel</button> 
+                    </form>
+                    </div>
+                    </Popup>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
+                    <Popup trigger={<button>Submit new review</button>} modal>
+                    <div className='review-popup'>
+                    <StarRatingComponent>
+                        name="rate1" 
+                        starCount={10}
+                        value={rating}
+                        onStarClick={this.onStarClick.bind(this)}
+                    </StarRatingComponent>
+                    <form className='review-form'>
+                    <label>
+                        Leave review below!
+                    </label>
+                        <textarea></textarea>
+                        <button type="submit">Submit</button>
+                        <button type="button">Cancel</button> 
+                    </form>
+                    </div>
+                    </Popup>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
+                    <Popup trigger={<button>Submit new review</button>} modal>
+                    <div className='review-popup'>
+                    <StarRatingComponent>
+                        name="rate1" 
+                        starCount={10}
+                        value={rating}
+                        onStarClick={this.onStarClick.bind(this)}
+                    </StarRatingComponent>
+                    <form className='review-form'>
+                    <label>
+                        Leave review below!
+                    </label>
+                        <textarea></textarea>
+                        <button type="submit">Submit</button>
+                        <button type="button">Cancel</button> 
+                    </form>
+                    </div>
+                    </Popup>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
+                    <Popup trigger={<button>Submit new review</button>} modal>
+                    <div className='review-popup'>
+                    <StarRatingComponent>
+                        name="rate1" 
+                        starCount={10}
+                        value={rating}
+                        onStarClick={this.onStarClick.bind(this)}
+                    </StarRatingComponent>
+                    <form className='review-form'>
+                    <label>
+                        Leave review below!
+                    </label>
+                        <textarea></textarea>
+                        <button type="submit">Submit</button>
+                        <button type="button">Cancel</button> 
+                    </form>
+                    </div>
+                    </Popup>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
+                    <Popup trigger={<button>Submit new review</button>} modal>
+                    <div className='review-popup'>
+                    <StarRatingComponent>
+                        name="rate1" 
+                        starCount={10}
+                        value={rating}
+                        onStarClick={this.onStarClick.bind(this)}
+                    </StarRatingComponent>
+                    <form className='review-form'>
+                    <label>
+                        Leave review below!
+                    </label>
+                        <textarea></textarea>
+                        <button type="submit">Submit</button>
+                        <button type="button">Cancel</button> 
+                    </form>
+                    </div>
+                    </Popup>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
+                    <Popup trigger={<button>Submit new review</button>} modal>
+                    <div className='review-popup'>
+                    <StarRatingComponent>
+                        name="rate1" 
+                        starCount={10}
+                        value={rating}
+                        onStarClick={this.onStarClick.bind(this)}
+                    </StarRatingComponent>
+                    <form className='review-form'>
+                    <label>
+                        Leave review below!
+                    </label>
+                        <textarea></textarea>
+                        <button type="submit">Submit</button>
+                        <button type="button">Cancel</button> 
+                    </form>
+                    </div>
+                    </Popup>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
+                    <Popup trigger={<button>Submit new review</button>} modal>
+                    <div className='review-popup'>
+                    <StarRatingComponent>
+                        name="rate1" 
+                        starCount={10}
+                        value={rating}
+                        onStarClick={this.onStarClick.bind(this)}
+                    </StarRatingComponent>
+                    <form className='review-form'>
+                    <label>
+                        Leave review below!
+                    </label>
+                        <textarea></textarea>
+                        <button type="submit">Submit</button>
+                        <button type="button">Cancel</button> 
+                    </form>
+                    </div>
+                    </Popup>
                 </li>
                 <li>
                     <p>Insert picture here!</p>
                     <p>Rate</p>
                     <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                    <NavLink to='/review'><button>Submit new review</button></NavLink>
+                    <Popup trigger={<button>Submit new review</button>} modal>
+                    <div className='review-popup'>
+                    <StarRatingComponent>
+                        name="rate1" 
+                        starCount={10}
+                        value={rating}
+                        onStarClick={this.onStarClick.bind(this)}
+                    </StarRatingComponent>
+                    <form className='review-form'>
+                    <label>
+                        Leave review below!
+                    </label>
+                        <textarea></textarea>
+                        <button type="submit">Submit</button>
+                        <button type="button">Cancel</button> 
+                    </form>
+                    </div>
+                    </Popup>
                 </li>
             </ul>
             <footer>Social Media Links</footer>
