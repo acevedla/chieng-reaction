@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import './Userhomepage.css'
 import { NavLink } from 'react-router-dom'
 import Popup from 'reactjs-popup'
-import StarRatingComponent from 'react-star-rating-component';
+import StarRatingComponent from 'react-star-rating-component'
+import config from '../config'
 
 class Userhomepage extends Component {
     constructor() {
@@ -19,7 +20,7 @@ class Userhomepage extends Component {
     }
 
     componentDidMount () {
-        fetch(`http://localhost:8000/api/products/userhomepage`)
+        fetch(`${config.API_ENDPOINT}/products/userhomepage`)
         .then(response => {
           if(!response.ok) {
             throw new Error ('Something went wrong')

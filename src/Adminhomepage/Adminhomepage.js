@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Adminhomepage.css'
 import { NavLink } from 'react-router-dom'
+import config from '../config'
 
 class Adminhomepage extends Component {
     state = {
@@ -8,7 +9,7 @@ class Adminhomepage extends Component {
     };
 
     componentDidMount () {
-        fetch(`http://localhost:8000/api/products/userhomepage`)
+        fetch(`${config.API_ENDPOINT}/products/userhomepage`)
         .then(response => {
           if(!response.ok) {
             throw new Error ('Something went wrong')

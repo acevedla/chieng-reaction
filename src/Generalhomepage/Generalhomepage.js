@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 import './Generalhomepage.css'
+import config from '../config'
 
 
 class Generalhomepage extends Component {
@@ -9,7 +10,7 @@ class Generalhomepage extends Component {
     };
 
     componentDidMount () {
-        fetch(`http://localhost:8000/api/products`)
+        fetch(`${config.API_ENDPOINT}/products`)
         .then(response => {
           if(!response.ok) {
             throw new Error ('Something went wrong')
