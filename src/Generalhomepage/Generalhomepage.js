@@ -4,7 +4,33 @@ import './Generalhomepage.css'
 
 
 class Generalhomepage extends Component {
+    state = {
+        products: [],
+    };
+
+    componentDidMount () {
+        fetch(`http://localhost:8000/api/products`)
+        .then(response => {
+          if(!response.ok) {
+            throw new Error ('Something went wrong')
+          }
+          return response;
+        })
+        .then(response => response.json())
+        .then(data => {
+           this.setState({ 
+            products: data,
+           });
+          })
+        .catch(err => {
+          console.log('Error', err);
+        });
+    }
+
+
+
     render () {
+        console.log('hello', this.state.products)
         return (
             <div>
                 <header>
@@ -14,66 +40,12 @@ class Generalhomepage extends Component {
                     </nav>
                 </header>
                 <ul>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
-                <li>
-                    <p>Insert picture here!</p>
-                    <p>Rate</p>
-                    <p>Review snippet</p>
-                </li>
+                {this.state.products.map((products) =>
+                    <li key={products.id}>
+                        {products.title}
+                        {products.description}
+                        <img src={products.images} alt='Not found'></img>
+                    </li>)}
             </ul>
             <footer>Social Media NavLinks</footer>
             </div>
