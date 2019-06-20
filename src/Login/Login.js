@@ -5,16 +5,13 @@ import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 
 class Login extends Component {
-    static defaultProps = {
-        onLoginSuccess: () => {}
-      }
-    
       state = { error: null }
     
     handleSubmitJwtAuth = ev => {
       ev.preventDefault()
       this.setState({ error: null })
       const { username, password } = ev.target
+      console.log(ev.target.password.value)
     
       AuthApiService.postLogin({
         username: username.value,
@@ -24,7 +21,6 @@ class Login extends Component {
         username.value = ''
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
-        this.props.onLoginSuccess()
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -35,14 +31,18 @@ class Login extends Component {
             <div>
                 <form className='login-form'
                 onSubmit={this.handleSubmitJwtAuth}>
-                <label>
+                <div className='username'>
+                <label htmlFor='LoginForm__username'>
                     Username
                 </label>
-                <input name='username' type='text' placeholder='Please enter a username'></input>
-                <label>
+                <input name='username' id='LoginForm__username' type='text' placeholder='Please enter a username'></input>
+                </div>
+                <div className='password'>
+                <label htmlFor='LoginForm__password'>
                     Password
                 </label>
-                <input name='password' type='password' placeholder='Please enter a password'></input>
+                <input name='password' id='LoginForm__password' type='password' placeholder='Please enter a password'></input>
+                </div>
                 <NavLink to='/userhomepage'><button type='submit'>Login</button></NavLink>
                 </form>
             </div>

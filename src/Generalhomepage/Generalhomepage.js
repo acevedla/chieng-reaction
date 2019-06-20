@@ -28,10 +28,7 @@ class Generalhomepage extends Component {
         });
     }
 
-
-
     render () {
-        console.log('hello', this.state.products)
         return (
             <div>
                 <header>

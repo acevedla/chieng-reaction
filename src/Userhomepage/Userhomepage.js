@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import Popup from 'reactjs-popup'
 import StarRatingComponent from 'react-star-rating-component'
 import config from '../config'
+import TokenService from '../services/token-service'
 
 class Userhomepage extends Component {
     constructor() {
@@ -19,8 +20,17 @@ class Userhomepage extends Component {
         this.setState({rating: nextValue});
     }
 
+    handleLogoutClick = () => {
+        TokenService.clearAuthToken()
+      }
+
     componentDidMount () {
-        fetch(`${config.API_ENDPOINT}/products/userhomepage`)
+        fetch(`${config.API_ENDPOINT}/products/userhomepage`, {
+        headers: {
+            'content-type': 'application/json',
+            'authorization': `bearer ${TokenService.getAuthToken()}`,
+            },
+        })
         .then(response => {
           if(!response.ok) {
             throw new Error ('Something went wrong')
@@ -45,7 +55,7 @@ class Userhomepage extends Component {
             <div>
                 <header>
                     <nav>
-                    <NavLink to='/generalhomepage'>Log Out</NavLink>
+                    <NavLink onClick={this.handleLogoutClick} to='/generalhomepage'>Log Out</NavLink>
                     </nav>
                 </header>
                 <ul>

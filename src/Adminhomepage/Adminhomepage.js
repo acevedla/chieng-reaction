@@ -2,11 +2,16 @@ import React, { Component } from 'react'
 import './Adminhomepage.css'
 import { NavLink } from 'react-router-dom'
 import config from '../config'
+import TokenService from '../services/token-service'
 
 class Adminhomepage extends Component {
     state = {
         products: [],
     };
+
+    handleLogoutClick = () => {
+        TokenService.clearAuthToken()
+      }
 
     componentDidMount () {
         fetch(`${config.API_ENDPOINT}/products/userhomepage`)
@@ -32,7 +37,7 @@ class Adminhomepage extends Component {
             <div>
                 <header>
                     <nav>
-                    <NavLink to='/generalhomepage'>Log Out</NavLink>
+                    <NavLink onClick={this.handleLogoutClick} to='/generalhomepage'>Log Out</NavLink>
                     <NavLink to='/newproduct'>Add new product</NavLink>
                     </nav>
                 </header>
