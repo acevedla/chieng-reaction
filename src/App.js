@@ -8,6 +8,7 @@ import Newproduct from './Newproduct/Newproduct'
 import Adminhomepage from './Adminhomepage/Adminhomepage'
 import Editproduct from './Editproduct/Editproduct'
 import Landingpage from './Landingpage/Landingpage'
+import Adminlogin from './Adminlogin/Adminlogin'
 
 class App extends Component {
   render () {
@@ -17,6 +18,7 @@ class App extends Component {
       <Route path='/registerform' component= {Registerform} />
       <Route path='/generalhomepage' component={Generalhomepage} />
       <Route path='/login' component={Login} />
+      <Route path='/adminlogin' component={Adminlogin} />
       <Route path='/userhomepage' component={Userhomepage} />
       <Route path='/newproduct' component={Newproduct} />
       <Route path='/adminhomepage' component={Adminhomepage} />

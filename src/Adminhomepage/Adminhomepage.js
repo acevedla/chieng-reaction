@@ -12,24 +12,14 @@ class Adminhomepage extends Component {
   handleLogoutClick = () => {
       TokenService.clearAuthToken()
     }
-  
-  handleNewProductSubmit = e => {
-    e.preventDefault()
-
-    const products = {
-      title: e.target['title'].value,
-      description: e.target['description'].value,
-      images: e.target['images'].value,
-    }
-    fetch(`${config.API_ENDPOINT}/adminhomepage`, {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-  }  
+ 
   componentDidMount () {
-      fetch(`${config.API_ENDPOINT}/products/adminhomepage`)
+    fetch(`${config.API_ENDPOINT}/products/adminhomepage`, {
+      headers: {
+          'content-type': 'application/json',
+          'authorization': `bearer ${TokenService.getAuthToken()}`,
+          },
+      })
       .then(response => {
         if(!response.ok) {
           throw new Error ('Something went wrong')
