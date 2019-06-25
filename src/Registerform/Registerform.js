@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './Registerform.css'
-import { NavLink } from 'react-router-dom'
 import AuthApiService from '../services/auth-api-service'
 
 class Registerform extends Component {
@@ -10,7 +9,6 @@ class Registerform extends Component {
       handleSubmit = ev => {
         ev.preventDefault()
         const { username, password } = ev.target
-        console.log(username.value)
         this.setState({ error: null })
           AuthApiService.postUser({
           username: username.value,
@@ -19,6 +17,7 @@ class Registerform extends Component {
         .then(user => { 
           username.value = ''
           password.value = ''
+          this.props.history.push('/login')
         })
         .catch(res => {
         this.setState({ error: res.error })
@@ -46,7 +45,7 @@ class Registerform extends Component {
                     Confirm Password
                 </label>
                 <input type='password' placeholder='Please confirm your password'></input>
-                <NavLink to='/login'><button type='submit'>Submit</button></NavLink>
+                <button type='submit'>Submit</button>
                 </form>
             </div>
         )

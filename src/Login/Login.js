@@ -11,7 +11,6 @@ class Login extends Component {
       ev.preventDefault()
       this.setState({ error: null })
       const { username, password } = ev.target
-      console.log(ev.target.password.value)
     
       AuthApiService.postLogin({
         username: username.value,
@@ -21,6 +20,7 @@ class Login extends Component {
         username.value = ''
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
+        this.props.history.push('/userhomepage')
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -43,7 +43,7 @@ class Login extends Component {
                 </label>
                 <input name='password' id='LoginForm__password' type='password' placeholder='Please enter a password'></input>
                 </div>
-                <NavLink to='/userhomepage'><button type='submit'>Login</button></NavLink>
+               <button type='submit'>Login</button>
                 </form>
             </div>
         )

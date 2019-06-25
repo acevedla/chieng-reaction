@@ -61,7 +61,7 @@ class Userhomepage extends Component {
                 <ul>
                 {this.state.products.map((products) =>
                     <li key={products.id}>
-                    <img src={products.images} alt='Not found'></img>
+                    <img src={`http://localhost:8000/images/${products.images}`} alt='Not found'></img>
                     {products.title}
                     {products.description}
                     {products.ratings}

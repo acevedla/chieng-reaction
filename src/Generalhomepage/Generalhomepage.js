@@ -42,7 +42,7 @@ class Generalhomepage extends Component {
                     <li key={products.id}>
                         {products.title}
                         {products.description}
-                        <img src={products.images} alt='Not found'></img>
+                        <img src={`http://localhost:8000/images/${products.images}`} alt='Not found'></img>
                     </li>)}
             </ul>
             <footer>Social Media NavLinks</footer>
