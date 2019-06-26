@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import './Login.css'
+import './Adminlogin.css'
 import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 
-class Login extends Component {
-    state = { error: null }
+class Adminlogin extends Component {
+      state = { error: null }
     
-    handleSubmitJwtAuth = e => {
-      e.preventDefault()
+    handleSubmitJwtAuth = ev => {
+      ev.preventDefault()
       this.setState({ error: null })
-      const { username, password } = e.target
+      const { username, password } = ev.target
     
       AuthApiService.postLogin({
         username: username.value,
@@ -19,7 +19,7 @@ class Login extends Component {
         username.value = ''
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
-        this.props.history.push('/userhomepage')
+        this.props.history.push('/adminhomepage')
       })
       .catch(res => {
         this.setState({ error: res.error })
@@ -49,4 +49,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default Adminlogin;
