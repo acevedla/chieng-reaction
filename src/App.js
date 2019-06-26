@@ -9,19 +9,55 @@ import Adminhomepage from './Adminhomepage/Adminhomepage'
 import Editproduct from './Editproduct/Editproduct'
 import Landingpage from './Landingpage/Landingpage'
 import Adminlogin from './Adminlogin/Adminlogin'
+import config from './config'
 
 class App extends Component {
+  state = {
+    products: [],
+    rating: 1,
+  };
+
+  componentDidMount() {
+    fetch(`${config.API_ENDPOINT}/products`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Something went wrong')
+        }
+        return response;
+      })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          products: data,
+        });
+      })
+      .catch(err => {
+        console.log('Error', err);
+      });
+  }
+  
+  deleteNote = noteId => {
+    const newNote = this.state.notes.filter(bm =>
+      bm.notes_id !== noteId
+      )
+      this.setState({
+        notes: newNote
+      })
+    }
   render () {
   return (
     <main className='App'>
-      <Route  exact path='/' component={Landingpage} />
+      <Route exact path='/' component={Landingpage} />
       <Route path='/registerform' component= {Registerform} />
-      <Route path='/generalhomepage' component={Generalhomepage} />
+      <Route path='/generalhomepage' render={(routeProps) => 
+        (<Generalhomepage {...routeProps} products={this.state.products}/>)} />
       <Route path='/login' component={Login} />
       <Route path='/adminlogin' component={Adminlogin} />
-      <Route path='/userhomepage' component={Userhomepage} />
+      <Route path='/userhomepage' render={(routeProps) => 
+        (<Userhomepage {...routeProps} products={this.state.products} ratings={this.state.ratings}/>)} />
       <Route path='/newproduct' component={Newproduct} />
-      <Route path='/adminhomepage' component={Adminhomepage} />
+      <Route path='/adminhomepage' render={(routeProps) => 
+        (<Adminhomepage {...routeProps} products={this.state.products}/>)} />
       <Route path='/editproduct' component={Editproduct} />
     </main>
   );

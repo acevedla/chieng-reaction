@@ -3,54 +3,21 @@ import './Userhomepage.css'
 import { NavLink } from 'react-router-dom'
 import Popup from 'reactjs-popup'
 import StarRatingComponent from 'react-star-rating-component'
-import config from '../config'
 import TokenService from '../services/token-service'
 
 class Userhomepage extends Component {
-    constructor() {
-        super();
-     
-        this.state = {
-          rating: 1,
-          products: [],
-        };
-      }
-     
     onStarClick(nextValue, prevValue, name) {
-        this.setState({rating: nextValue});
+      this.setState({
+        rating: nextValue
+      });
     }
 
     handleLogoutClick = () => {
-        TokenService.clearAuthToken()
-      }
-
-    componentDidMount () {
-        fetch(`${config.API_ENDPOINT}/products/userhomepage`, {
-        headers: {
-            'content-type': 'application/json',
-            'authorization': `bearer ${TokenService.getAuthToken()}`,
-            },
-        })
-        .then(response => {
-          if(!response.ok) {
-            throw new Error ('Something went wrong')
-          }
-          return response;
-        })
-        .then(response => response.json())
-        .then(data => {
-           this.setState({ 
-            products: data,
-           });
-          })
-        .catch(err => {
-          console.log('Error', err);
-        });
+      TokenService.clearAuthToken()
     }
 
     render() {
-        const { rating } = this.state;
-        console.log(this.state.products)
+        const { rating } = this.props;
         return(
             <div>
                 <header>
@@ -59,7 +26,7 @@ class Userhomepage extends Component {
                     </nav>
                 </header>
                 <ul>
-                {this.state.products.map((products) =>
+                {this.props.products.map((products) =>
                     <li key={products.id}>
                     <img src={`http://localhost:8000/images/${products.images}`} alt='Not found'></img>
                     {products.title}
