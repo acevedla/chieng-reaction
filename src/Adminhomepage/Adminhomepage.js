@@ -4,11 +4,12 @@ import { NavLink } from 'react-router-dom'
 import TokenService from '../services/token-service'
 import config from '../config'
 
-function deleteProductRequest(id, callback) {
+function deleteProductsRequest(id, callback) {
   fetch(`${config.API_ENDPOINT}/products/adminhomepage`, {
       method: 'DELETE',
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
     })
     .then(response => {
@@ -51,7 +52,8 @@ class Adminhomepage extends Component {
                   {products.ratings}
                   {products.reviews}
                  <NavLink to='/editproduct'><button type='button'>edit</button></NavLink> 
-                 <button type='button'>Delete</button>
+                 <button type='button' onClick={() => {
+                             deleteProductsRequest(products.id, this.props.deleteProduct(products.id))}}>Delete</button>
               </li>)}
           </ul>
           <footer>Social Media Links</footer>

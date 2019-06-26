@@ -1,7 +1,7 @@
 import config from '../config'
 import TokenService from './token-service'
 
-const ProductApiService = {
+const ProductsApiService = {
   postNewProduct(newProduct) {
     return fetch(`${config.API_ENDPOINT}/products/adminhomepage`, {
       method: 'POST',
@@ -35,4 +35,4 @@ const ProductApiService = {
 
 }
 
-export default ProductApiService
+export default ProductsApiService

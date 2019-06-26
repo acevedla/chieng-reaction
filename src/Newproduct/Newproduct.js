@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Newproduct.css'
-import ProductApiService from '../services/product-api-service'
+import ProductsApiService from '../services/products-api-service'
 
 class Newproduct extends Component {
     state = { error: null }
@@ -10,7 +10,7 @@ class Newproduct extends Component {
         this.setState({ error: null })
         const { title, description, images } = e.target
 
-        ProductApiService.postNewProduct({
+        ProductsApiService.postNewProduct({
             title: title.value,
             description: description.value,
             images: images.value,

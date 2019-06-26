@@ -36,14 +36,15 @@ class App extends Component {
       });
   }
   
-  deleteNote = noteId => {
-    const newNote = this.state.notes.filter(bm =>
-      bm.notes_id !== noteId
-      )
-      this.setState({
-        notes: newNote
-      })
-    }
+  deleteProduct = productId => {
+    const newProduct = this.state.products.filter(bm =>
+      bm.id !== productId
+    )
+    this.setState({
+      products: newProduct
+    })
+  }
+
   render () {
   return (
     <main className='App'>
@@ -57,7 +58,7 @@ class App extends Component {
         (<Userhomepage {...routeProps} products={this.state.products} ratings={this.state.ratings}/>)} />
       <Route path='/newproduct' component={Newproduct} />
       <Route path='/adminhomepage' render={(routeProps) => 
-        (<Adminhomepage {...routeProps} products={this.state.products}/>)} />
+        (<Adminhomepage {...routeProps} products={this.state.products} deleteProduct={this.deleteProduct}/>)} />
       <Route path='/editproduct' component={Editproduct} />
     </main>
   );

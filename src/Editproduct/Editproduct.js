@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Editproduct.css'
-import ProductApiService from '../services/product-api-service'
+import ProductsApiService from '../services/products-api-service'
 
 class Editproduct extends Component {
     state = { error: null }
@@ -10,7 +10,7 @@ class Editproduct extends Component {
         this.setState({ error: null })
         const { title, description, images } = e.target
 
-        ProductApiService.editProduct({
+        ProductsApiService.editProduct({
             title: title.value,
             description: description.value,
             images: images.value,
