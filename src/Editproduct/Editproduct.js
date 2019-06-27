@@ -11,6 +11,7 @@ class Editproduct extends Component {
         const { title, description, images } = e.target
 
         ProductsApiService.editProduct({
+            id: this.props.location.id,
             title: title.value,
             description: description.value,
             images: images.value,
@@ -27,6 +28,7 @@ class Editproduct extends Component {
     }
 
     render () {
+        console.log(this.props)
         return(
             <div>
                 <form className='register-form'
