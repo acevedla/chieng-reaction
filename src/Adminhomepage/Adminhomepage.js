@@ -5,12 +5,16 @@ import TokenService from '../services/token-service'
 import config from '../config'
 
 function deleteProductsRequest(id, callback) {
+  console.log(id)
   fetch(`${config.API_ENDPOINT}/products/adminhomepage`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json',
         'authorization': `bearer ${TokenService.getAuthToken()}`,
       },
+      body: JSON.stringify({
+        id: id,
+      }),
     })
     .then(response => {
       if (!response.ok) {
@@ -51,7 +55,10 @@ class Adminhomepage extends Component {
                   {products.description}
                   {products.ratings}
                   {products.reviews}
-                 <NavLink to='/editproduct'><button type='button'>edit</button></NavLink> 
+                 <NavLink to={{
+                   pathname:'/editproduct',
+                    id: products.id
+                 }}><button type='button'>edit</button></NavLink> 
                  <button type='button' onClick={() => {
                              deleteProductsRequest(products.id, this.props.deleteProduct(products.id))}}>Delete</button>
               </li>)}

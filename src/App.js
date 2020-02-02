@@ -10,11 +10,11 @@ import Editproduct from './Editproduct/Editproduct'
 import Landingpage from './Landingpage/Landingpage'
 import Adminlogin from './Adminlogin/Adminlogin'
 import config from './config'
+import Reviewproduct from './Reviewproduct/Reviewproduct'
 
 class App extends Component {
   state = {
     products: [],
-    rating: 1,
   };
 
   componentDidMount() {
@@ -55,11 +55,12 @@ class App extends Component {
       <Route path='/login' component={Login} />
       <Route path='/adminlogin' component={Adminlogin} />
       <Route path='/userhomepage' render={(routeProps) => 
-        (<Userhomepage {...routeProps} products={this.state.products} ratings={this.state.ratings}/>)} />
+        (<Userhomepage {...routeProps} products={this.state.products} rating={this.state.rating}/>)} />
       <Route path='/newproduct' component={Newproduct} />
       <Route path='/adminhomepage' render={(routeProps) => 
         (<Adminhomepage {...routeProps} products={this.state.products} deleteProduct={this.deleteProduct}/>)} />
       <Route path='/editproduct' component={Editproduct} />
+      <Route path='/review' component={Reviewproduct} />
     </main>
   );
   }
