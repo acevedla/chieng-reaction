@@ -22,7 +22,7 @@ class Newproduct extends Component {
             this.props.history.push('/adminhomepage')
         })
         .catch(res => {
-            this.setState({ error: res.errro })
+            this.setState({ error: res.errror })
         })
     } 
 
